@@ -339,6 +339,75 @@ export const DEMO_BOT_FEEDBACK_RECIENTE: BotFeedback[] = [
   },
 ];
 
+export type Template = {
+  id: string;
+  nombre: string;
+  tipo: "email" | "whatsapp";
+  asunto: string | null;
+  cuerpo_texto: string;
+  emoji: string | null;
+  veces_usado: number;
+  ultimo_uso: string | null;
+};
+
+export const DEMO_TEMPLATES: Template[] = [
+  {
+    id: "t1",
+    nombre: "Recordatorio asesoría 24h",
+    tipo: "whatsapp",
+    asunto: null,
+    cuerpo_texto:
+      "Hola {{nombre}}, le recuerdo nuestra asesoría sobre su pensión Régimen {{regimen}} el {{fecha_asesoria}}. Aquí el enlace: {{link_asesoria}}. Si tiene su carta de semanas a la mano, perfecto. Cualquier cosa, me avisa.",
+    emoji: "📅",
+    veces_usado: 42,
+    ultimo_uso: "hace 2 días",
+  },
+  {
+    id: "t2",
+    nombre: "Reactivación silencio 60+ días",
+    tipo: "whatsapp",
+    asunto: null,
+    cuerpo_texto:
+      "Hola {{nombre}}, le saluda Haydeé Pérez. Hace tiempo platicamos de su pensión y quería retomar. Con sus {{semanas}} semanas en Régimen {{regimen}} hay opciones nuevas que conviene revisar este año. ¿Le marco esta semana?",
+    emoji: "💬",
+    veces_usado: 18,
+    ultimo_uso: "hace 1 semana",
+  },
+  {
+    id: "t3",
+    nombre: "Envío de propuesta personalizada",
+    tipo: "email",
+    asunto: "Su propuesta de pensión — Haydeé Pérez",
+    cuerpo_texto:
+      "Estimado(a) {{nombre}} {{apellido}},\n\nLe envío la propuesta personalizada para su trámite de pensión Régimen {{regimen}}. Está calculada con sus {{semanas}} semanas cotizadas y considera la modalidad que platicamos.\n\nLink de pago seguro (12 MSI disponibles): {{link_pago}}\n\nQuedo al pendiente para resolver dudas.\n\nSaludos cordiales,\nHaydeé Pérez",
+    emoji: "📄",
+    veces_usado: 27,
+    ultimo_uso: "hace 3 días",
+  },
+  {
+    id: "t4",
+    nombre: "Felicitación cumpleaños",
+    tipo: "whatsapp",
+    asunto: null,
+    cuerpo_texto:
+      "Hola {{nombre}}, ¡muchas felicidades en su día! Le deseamos un año lleno de salud y tranquilidad. Recuerde que aquí seguimos a la orden para lo que necesite de su pensión.",
+    emoji: "🎂",
+    veces_usado: 9,
+    ultimo_uso: "hace 1 mes",
+  },
+  {
+    id: "t5",
+    nombre: "Confirmación firma de propuesta",
+    tipo: "whatsapp",
+    asunto: null,
+    cuerpo_texto:
+      "{{nombre}}, recibimos su pago y firma. Iniciamos el trámite ante el IMSS esta misma semana. Le voy notificando cada avance. Gracias por la confianza.",
+    emoji: "✅",
+    veces_usado: 14,
+    ultimo_uso: "hace 5 días",
+  },
+];
+
 export const DEMO_REACTIVACION = [
   {
     id: "r1",
