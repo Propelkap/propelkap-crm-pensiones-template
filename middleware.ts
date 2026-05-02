@@ -35,7 +35,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   // Rutas públicas
-  const publicPaths = ["/login", "/auth", "/api/webhooks"];
+  const publicPaths = ["/login", "/auth", "/api/webhooks", "/api/tenant-healthcheck"];
   const isPublic = publicPaths.some((p) => path.startsWith(p));
 
   if (!user && !isPublic) {
