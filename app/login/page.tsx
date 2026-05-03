@@ -5,6 +5,17 @@ import { Briefcase } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
+// Branding dinámico via ENV vars (cada cliente sobrescribe en Vercel):
+//   NEXT_PUBLIC_BRAND_LABEL_BOTTOM → eyebrow ("Pensiones y Asesoría Patrimonial")
+//   NEXT_PUBLIC_LOGIN_GREETING     → h1 grande ("Hola, Haydeé")
+//   NEXT_PUBLIC_LOGIN_SUBTITLE     → subtítulo ("Bienvenida a tu CRM")
+//   NEXT_PUBLIC_BRAND_LABEL_TOP    → footer ("PropelKap × Haydeé Pérez")
+const BRAND_TOP = process.env.NEXT_PUBLIC_BRAND_LABEL_TOP ?? "PropelKap × Haydeé Pérez";
+const BRAND_BOTTOM = process.env.NEXT_PUBLIC_BRAND_LABEL_BOTTOM ?? "Pensiones y Asesoría Patrimonial";
+const NAME_PART = BRAND_TOP.replace(/^PropelKap\s*[×x]\s*/i, "").trim();
+const LOGIN_GREETING = process.env.NEXT_PUBLIC_LOGIN_GREETING ?? `Hola, ${NAME_PART}`;
+const LOGIN_SUBTITLE = process.env.NEXT_PUBLIC_LOGIN_SUBTITLE ?? "Bienvenida a tu CRM";
+
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -36,10 +47,10 @@ export default function LoginPage() {
           <div className="w-12 h-12 rounded-2xl bg-[var(--lime-soft)] flex items-center justify-center mx-auto mb-5 text-[var(--navy-deep)]">
             <Briefcase className="w-6 h-6" />
           </div>
-          <p className="eyebrow mb-2">Pensiones y Asesoría Patrimonial</p>
-          <h1 className="text-3xl">Hola, Haydeé</h1>
+          <p className="eyebrow mb-2">{BRAND_BOTTOM}</p>
+          <h1 className="text-3xl">{LOGIN_GREETING}</h1>
           <p className="text-sm text-[var(--muted-foreground)] mt-2">
-            Bienvenida a tu CRM
+            {LOGIN_SUBTITLE}
           </p>
         </div>
 
@@ -71,7 +82,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-xs text-center text-[var(--muted-foreground)] mt-8">
-          PropelKap × Haydeé Pérez
+          {BRAND_TOP}
         </p>
       </div>
     </main>
