@@ -15,7 +15,7 @@ export type SectionKind =
   | 'cta'
   | 'sobre_mi';
 
-export type BrandVoice = 'formal' | 'cercano' | 'experto';
+export type BrandVoice = 'formal' | 'cercano_usted' | 'cercano_tu' | 'experto';
 export type FontFamily = 'inter' | 'playfair' | 'manrope';
 
 export interface LandingConfig {

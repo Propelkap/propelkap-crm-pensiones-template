@@ -15,15 +15,17 @@ import type {
 
 const VOICE_DESC: Record<string, string> = {
   formal:
-    'tono profesional, distante, hablando de "usted". Sin emojis. Frases completas.',
-  cercano:
-    'tono cálido y empático, hablando de "usted". Sin sonar acartonado. Emojis con moderación (1-2 max por sección).',
+    'tono profesional y distante, hablando SIEMPRE de "usted". Sin emojis. Frases completas.',
+  cercano_usted:
+    'tono cálido y empático, hablando SIEMPRE de "usted". Sin sonar acartonado. Emojis con moderación (1-2 max por sección).',
+  cercano_tu:
+    'tono cálido y cercano, tuteando al lector ("tú", "te", "tus"). Conversacional. Emojis con moderación (1-2 max por sección).',
   experto:
-    'tono autoritativo y directo, basado en datos. Hablando de "usted". Sin emojis.',
+    'tono autoritativo y directo, basado en datos. Hablando SIEMPRE de "usted". Sin emojis.',
 };
 
 export function buildSystemPrompt(config: LandingConfig): string {
-  const voice = VOICE_DESC[config.brand_voice ?? 'cercano'];
+  const voice = VOICE_DESC[config.brand_voice ?? 'cercano_usted'];
   return `Eres copywriter especialista en landing pages de servicios financieros para el mercado mexicano.
 
 CONTEXTO DEL CLIENTE:
@@ -32,7 +34,7 @@ CONTEXTO DEL CLIENTE:
 - Tagline (si existe): ${config.tagline ?? '(no definido)'}
 
 REGLAS DURAS:
-1. Habla SIEMPRE en español de México.
+1. Habla SIEMPRE en español de México con el tono especificado arriba (tutea/usted como indique). Si el tono dice tutear ("tú"), NUNCA uses "usted" o "le". Si el tono dice "usted", NUNCA uses "tú" o "te".
 2. Devuelve SIEMPRE JSON válido. Sin markdown ni texto adicional.
 3. NUNCA prometas montos exactos, "garantías" de pensión, ni cifras específicas (ej. "$50,000 al mes garantizado"). Usa frases como "puede mejorar significativamente su pensión" o "muchos clientes han logrado X".
 4. Cumple las leyes de publicidad financiera mexicana: nada de "el mejor", "único", "líder" sin sustento.

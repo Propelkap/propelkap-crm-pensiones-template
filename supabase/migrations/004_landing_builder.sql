@@ -179,7 +179,7 @@ BEGIN
         'bg', '#ffffff', 'text', '#1a1a1a'
       ),
       'font', 'inter',
-      'brand_voice', 'cercano'
+      'brand_voice', 'cercano_usted'
     )
   )
   RETURNING id INTO v_landing_id;

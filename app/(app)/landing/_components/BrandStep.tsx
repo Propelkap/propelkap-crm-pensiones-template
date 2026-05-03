@@ -11,8 +11,9 @@ const FONTS = [
 
 const VOICES = [
   { value: "formal", label: "Formal · usted distante · sin emojis" },
-  { value: "cercano", label: "Cercano · usted cálido · 1-2 emojis" },
-  { value: "experto", label: "Experto · directo · datos primero" },
+  { value: "cercano_usted", label: "Cercano · usted cálido · 1-2 emojis" },
+  { value: "cercano_tu", label: "Cercano · tutea (tú) · 1-2 emojis" },
+  { value: "experto", label: "Experto · usted · directo · datos primero" },
 ];
 
 export default function BrandStep({
@@ -89,7 +90,7 @@ export default function BrandStep({
             Tono de voz
           </label>
           <select
-            value={config.brand_voice ?? "cercano"}
+            value={config.brand_voice ?? "cercano_usted"}
             onChange={(e) => setConfig({ ...config, brand_voice: e.target.value })}
             className="w-full px-3 py-2.5 rounded-xl border border-[var(--border)] bg-[var(--background)]"
           >
