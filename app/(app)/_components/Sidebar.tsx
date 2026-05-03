@@ -16,6 +16,7 @@ import {
   X,
   Megaphone,
   Briefcase,
+  Globe,
 } from "lucide-react";
 import LogoutButton from "./LogoutButton";
 
@@ -26,6 +27,7 @@ const ITEMS = [
   { href: "/asesorias", label: "Asesorías", icon: PhoneCall },
   { href: "/reactivacion", label: "Reactivación", icon: Send },
   { href: "/marketing", label: "Marketing", icon: Megaphone },
+  { href: "/landing", label: "Mi Landing", icon: Globe },
   { href: "/whatsapp", label: "WhatsApp", icon: MessageCircle },
   { href: "/reportes", label: "Reportes", icon: BarChart3 },
   { href: "/configuracion", label: "Configuración", icon: Settings },
