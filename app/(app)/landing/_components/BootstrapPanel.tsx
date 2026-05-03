@@ -61,7 +61,7 @@ export default function BootstrapPanel({
       <p className="text-sm text-[hsl(220_15%_55%)] mb-6">
         Vivirá en{" "}
         <span className="font-mono">
-          {slug || slugify(brandName) || "<slug>"}.propelkap.com
+          {slug || slugify(brandName) || "<slug>"}.os.propelkap.com
         </span>
       </p>
 
@@ -91,7 +91,7 @@ export default function BootstrapPanel({
               placeholder={brandName ? slugify(brandName) : "haydee-perez"}
               className="flex-1 px-3 py-2.5 rounded-xl border border-[var(--border)] bg-[var(--background)] font-mono text-sm"
             />
-            <span className="text-xs text-[hsl(220_15%_55%)]">.propelkap.com</span>
+            <span className="text-xs text-[hsl(220_15%_55%)]">.os.propelkap.com</span>
           </div>
         </div>
 

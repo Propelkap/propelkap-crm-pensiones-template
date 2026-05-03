@@ -146,7 +146,7 @@ export async function POST(req: Request) {
     ok: true,
     action: 'published',
     slug: landing.slug,
-    public_url: `https://${landing.slug}.propelkap.com`,
+    public_url: `https://${landing.slug}.os.propelkap.com`,
     propagation_note: 'ISR 60s · la URL refresca ~1 min después',
   });
 }
