@@ -163,7 +163,7 @@ export default function LandingBuilderClient({
               href={publishMsg}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 flex items-center gap-2 text-xs text-[var(--lime)] underline"
+              className="mt-3 flex items-center gap-2 text-xs text-[var(--navy-deep)] hover:text-[var(--navy-soft)] underline break-all"
             >
               <ExternalLink className="w-3 h-3" />
               {publishMsg}
